@@ -1,0 +1,40 @@
+.content {
+    padding: 1%;
+    margin: 1%;
+}
+
+h1 {
+    font-size: 24px;
+    color: #4220da;
+}
+
+.content_header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+h2 {
+    font-size: 18px;
+    color: #37b0e7;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.4;
+    color: #444;
+}
+
+a {
+    color: #0074D9;
+    text-decoration: none;
+}
+
+/* Hover effect for links */
+a:hover {
+    text-decoration: underline;
+}
+
+.margin_ten {
+    margin: 10px;
+}

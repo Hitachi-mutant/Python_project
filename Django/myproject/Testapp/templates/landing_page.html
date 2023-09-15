@@ -1,18 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My landing page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../static/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Test HTML Page</title>
+    <!--<title>{% block title %}{% endblock %}</title>
+  {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}-->
 </head>
-
 <body>
-<h1>The page with awesome content<h1>
+    <div class="content container">
+    <div class="content_header">
+    <h1>Welcome to My Page</h1>
+    </div>
 
-<p>while both MVC and MVT are design patterns used in web development, 
-    Django follows the MVT pattern. In Django's MVT pattern, 
-    the Model represents the data and business logic, 
-    the View handles HTTP requests and contains some presentation logic, 
-    and the Template handles the presentation and rendering of HTML. 
-    This architecture helps in maintaining a clear separation of concerns 
-    and allows for modular and maintainable code in Django web applications.</p>
+    <h2>Section 1</h2>
+    <p>This is the first section of the page. Here is some introductory text.</p>
+
+    <h2>Section 2</h2>
+    <p>This is the second section of the page. More information can be found here.</p>
+
+    <h2>Section 3</h2>
+    <p>This is the third section of the page. You'll find additional details in this section.</p>
+
+    <p>Here are two links:</p>
+    <ul>
+        <li><a href="https://en.wikipedia.org/wiki/Large_Hadron_Collider">Hadron Collider</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python info</a></li>
+    </ul>
+
+    
+      <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Well done!</h4>
+        <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+        <hr>
+        <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+      </div>
+
+      <form>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Email address</label>
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Example select</label>
+          <select class="form-control" id="exampleFormControlSelect1">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect2">Example multiple select</label>
+          <select multiple class="form-control" id="exampleFormControlSelect2">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Example textarea</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+      </form>
+
+    <!--<div class="container">
+        <ul class="nav bg-info">
+          <li class="nav-item">
+            <a class="nav-link link-light" href="/">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link link-light" href="/members">MEMBERS</a>
+          </li>
+        </ul>
+        {% block content %}
+        {% endblock %}-->
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</div>
 </body>
 </html>
