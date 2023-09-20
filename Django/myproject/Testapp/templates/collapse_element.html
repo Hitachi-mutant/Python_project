@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+  
+  
+</head>
+<body>
+
+<div class="container">
+
+<!-- Collapsable that we are taking from data base -->
+<div class='wrapper_div'>
+{% for element in element_data %}
+  <p class="d-inline-flex gap-1">
+    <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+      {{ element.first_button }}
+    </a>
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      {{ element.second_button }}
+    </button>
+  </p>
+  <div class="collapse" id="collapseExample">
+    <div class="card card-body">
+      {{ element.text_field }}
+    </div>
+  </div>
+{% endfor %}
+</div>
+
+  {% block content %}
+  {% endblock %}
+</div>
+
+</body>
+</html>
+
+

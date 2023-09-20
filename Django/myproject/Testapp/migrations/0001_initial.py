@@ -3,21 +3,6 @@
 from django.db import migrations, models
 import django.db.models.deletion
 from Testapp.models import Category, Note
-# from django.utils import timezone
-
-# def create_initial_data(apps, schema_editor):
-#     Category = apps.get_model('Testapp', 'Category')
-#     Note = apps.get_model('Testapp', 'Note')
-
-#     # Create categories
-#     category1 = Category.objects.create(title='Work')
-#     category2 = Category.objects.create(title='Personal')
-
-#     # Create notes and associate them with categories
-#     note1 = Note.objects.create(title='Meeting with client', text='Meeting at 2:00 PM', reminder=timezone.now(), category=category1)
-#     note2 = Note.objects.create(title='Hangout with friends', text='Meeting at the cafe', reminder=timezone.now(), category=category2)
-#     note3 = Note.objects.create(title='Finish the project', text='Complete an important project', category=category1)
-
 
 class Migration(migrations.Migration):
 

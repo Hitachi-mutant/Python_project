@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Organizer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../static/styles.css">
+</head>
+<body>
+
+    
+    <div class="flex-row-center">    
+        <h1>Organizer</h1>
+    </div>
+    <div class="flex-row-center">
+        <h2>Create a note</h2>
+    </div>
+<div class="flex-row-center light-tile">
+    <form action="{% url 'organiser_app' %}" method="post"> 
+        {% csrf_token %} 
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required>
+        <br><br>
+    
+        <label for="text">Text:</label>
+        <textarea id="text" name="text" rows="4" cols="50" required></textarea>
+        <br><br>
+    
+        <label for="reminder">Reminder:</label>
+        <input type="datetime-local" id="reminder" name="reminder">
+        <br><br>
+    
+        <label for="category">Category:</label>
+        <select id="category" name="category">
+            {% for category in categories %}
+            <option value="{{ category.id }}">{{ category.title }}</option> 
+            {% endfor %}
+        </select>
+        <br><br>
+    
+        <input type="submit" value="Save Note" class="btn btn-primary">
+
+
+    </form>
+</div>
+
+<div class="flex-row-center">
+    <h2>Filter by Category</h2>
+</div>
+<div class="flex-row-center light-tile">
+    <form method="get" action="{% url 'filter_notes_by_category' %}">
+        <label for="category">Select a Category:</label>
+        <select id="category" name="category">
+            <option value="">All Categories</option>
+            {% for category in categories %}
+                <option value="{{ category.id }}">{{ category.title }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Filter" class="btn btn-primary">
+    </form>
+</div>
+    
+<div class="margin-sides margin-top-bottom">
+    <h2>My Notes</h2>
+    <ul>
+        {% for note in notes %}
+            <!-- Display filtered notes -->
+            <li>
+                <h3>{{ note.title }}</h3>
+            <div class="flex-row-space-around border-solid-grey">
+                <div>
+                    <p>{{ note.text }}</p>
+                </div>
+                {% if note.reminder %}
+                <div>
+                    <p>Reminder: {{ note.reminder }}</p>
+                </div>
+                {% endif %}
+                <div>
+                    <p>Category: {{ note.category.title }}</p>
+                </div>
+            </div>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+
+</body>
+</html>
+
+
