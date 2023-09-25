@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django import forms
+from django.contrib.auth.models import User
 
 class Person(models.Model):
     first_name = models.CharField(max_length=30)
@@ -21,11 +22,15 @@ class Category(models.Model):
     def __str__(self):
         return self.title
 
+
 class Note(models.Model):
     title = models.CharField(max_length=200)
     text = models.TextField()
     reminder = models.DateTimeField(null=True, blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='notes')
+    
+    # Add a user field to associate notes with the creator
+    creator = models.ForeignKey(User, on_delete=models.CASCADE, related_name='created_notes')
 
     def __str__(self):
         return self.title

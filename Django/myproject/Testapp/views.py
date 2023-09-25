@@ -61,3 +61,11 @@ def filter_notes_by_category(request):
         notes = Note.objects.all()
 
     return render(request, 'organiser_app.html', {'categories': categories, 'notes': notes})
+
+
+
+
+
+
+
+

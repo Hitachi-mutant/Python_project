@@ -71,6 +71,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'myproject.wsgi.application'
 
+# Default authentication backend
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',  
+]
+
+# URLs for authentication
+LOGIN_URL = 'login'  # This is django default
+LOGOUT_URL = 'logout'  # This is django default
+LOGIN_REDIRECT_URL = 'organiser_app'
+LOGOUT_REDIRECT_URL = 'login'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
