@@ -8,6 +8,12 @@
 </head>
 <body>
 
+    <div class="flex-row-center">
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit" class="my-btn-outline-primary">Logout</button>
+        </form>
+    </div>
     
     <div class="flex-row-center">    
         <h1>Organizer</h1>
@@ -38,9 +44,7 @@
         </select>
         <br><br>
     
-        <input type="submit" value="Save Note" class="btn btn-primary">
-
-
+        <input type="submit" value="Save Note" class="my-btn-outline-primary">
     </form>
 </div>
 
@@ -56,7 +60,7 @@
                 <option value="{{ category.id }}">{{ category.title }}</option>
             {% endfor %}
         </select>
-        <input type="submit" value="Filter" class="btn btn-primary">
+        <input type="submit" value="Filter" class="my-btn-outline-primary">
     </form>
 </div>
     
@@ -67,20 +71,35 @@
             <!-- Display filtered notes -->
             <li>
                 <h3>{{ note.title }}</h3>
-            <div class="flex-row-space-around border-solid-grey">
-                <div>
-                    <p>{{ note.text }}</p>
+                <div class="flex-row-space-around border-solid-grey">
+                    <div>
+                        {% if note.text %}
+                            <p>{{ note.text }}</p>
+                        {% else %}
+                            <p>No description</p>
+                        {% endif %}
+                    </div>
+                    <div>
+                        {% if note.reminder %}
+                            <p>Reminder: {{ note.reminder }}</p>
+                        {% else %}
+                            <p>Reminder: None</p>
+                        {% endif %}
+                    </div>
+                    <div>
+                        {% if note.category %}
+                            <p>Category: {{ note.category.title }}</p>
+                        {% else %}
+                            <p>Category: None</p>
+                        {% endif %}
+                    </div>
                 </div>
-                {% if note.reminder %}
-                <div>
-                    <p>Reminder: {{ note.reminder }}</p>
-                </div>
-                {% endif %}
-                <div>
-                    <p>Category: {{ note.category.title }}</p>
-                </div>
-            </div>
             </li>
+            <form method="post" action="{% url 'delete_note' note.id %}">
+                {% csrf_token %}
+                <input type="hidden" name="note_id" value="{{ note.id }}">
+                <button type="submit" class="my-btn-outline-danger">Delete Note</button>
+            </form>
         {% endfor %}
     </ul>
 </div>
@@ -88,5 +107,3 @@
 
 </body>
 </html>
-
-
